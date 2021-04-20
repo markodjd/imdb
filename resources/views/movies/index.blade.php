@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <div>
+    <div class="row mt-3">
         @forelse ($movies as $movie)
-            <div>
+            <div class="col-6">
                 <a href="/movies/{{ $movie->id }}">
                     <h2>{{ $movie->title }}</h2>
                     <p>{{ $movie->storyline }}</p>

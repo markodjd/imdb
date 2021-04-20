@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/movies', [MoviesController::class, 'index']);
 
+Route::post('/movies', [MoviesController::class, 'store']);
+
 Route::get('/movies/{movie}', [MoviesController::class, 'show'])->name('movie');
 
 Route::get('/add', [MoviesController::class, 'create']);

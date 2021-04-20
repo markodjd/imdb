@@ -7,7 +7,7 @@
     <div class="row mt-3">
         @forelse ($movies as $movie)
             <div class="col-6">
-                <a href="/movies/{{ $movie->id }}">
+                <a class="text-dark text-decoration-none" href="{{ route('movie', ['movie' => $movie->id]) }}">
                     <h2>{{ $movie->title }}</h2>
                     <p>{{ $movie->storyline }}</p>
                 </a>

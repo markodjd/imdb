@@ -7,7 +7,8 @@
     <div class="row mt-3">
         <div class="col-6">
             <h2>{{ $movie->title }} ({{ date('d.m.Y', strtotime($movie->release_date)) }}) <small
-                    class="text-muted fs-6">{{ $movie->genre }}</small></h2>
+                    class="text-muted fs-6"><a class="text-decoration-none"
+                        href="/genres/{{ $movie->genre }}">{{ $movie->genre }}</a></small></h2>
             <p><strong>Director: </strong>{{ $movie->director }}</p>
             <p>{{ $movie->storyline }}</p>
         </div>

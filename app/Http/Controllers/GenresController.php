@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateMovieRequest;
+use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
-class MoviesController extends Controller {
+class GenresController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $movies = Movie::orderBy('created_at', 'desc')->get();
-        return view('movies.index', compact('movies'));
     }
 
     /**
@@ -23,7 +21,7 @@ class MoviesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('movies.create');
+        //
     }
 
     /**
@@ -32,29 +30,28 @@ class MoviesController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateMovieRequest $request) {
-        $data = $request->validated();
-        Movie::create($data);
-        return redirect('/movies');
+    public function store(Request $request) {
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $movie) {
-        return view('movies.show', compact('movie'));
+    public function show($genre) {
+        $movies = Movie::where('genre', $genre)->get();
+        return view('movies.index', compact('movies'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movie $movie) {
+    public function edit(Genre $genre) {
         //
     }
 
@@ -62,20 +59,20 @@ class MoviesController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie) {
+    public function update(Request $request, Genre $genre) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movie $movie) {
+    public function destroy(Genre $genre) {
         //
     }
 }

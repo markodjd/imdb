@@ -6,9 +6,9 @@
 
     <div class="row mt-3">
         <div class="col-6">
-            <h2>{{ $movie->title }} ({{ date('d.m.Y', strtotime($movie->release_date)) }}) <small
-                    class="text-muted fs-6"><a class="text-decoration-none"
-                        href="/genres/{{ $movie->genre }}">{{ $movie->genre }}</a></small></h2>
+            <h2>{{ $movie->title }} ({{ date('Y', strtotime($movie->release_date)) }}) <small class="text-muted fs-6"><a
+                        class="text-decoration-none" href="/genres/{{ $movie->genre }}">{{ $movie->genre }}</a></small>
+            </h2>
             <p><strong>Director: </strong>{{ $movie->director }}</p>
             <p>{{ $movie->storyline }}</p>
         </div>
@@ -17,7 +17,7 @@
         <div class="col-6">
             <h3>Comments</h3>
             @forelse ($movie->comments as $comment)
-                <p>{{ $comment->content }}</p>
+                <p class="p-2 border-bottom">{{ $comment->content }}</p>
             @empty
                 <p>No comments.</p>
             @endforelse
